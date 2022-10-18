@@ -68,7 +68,7 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: shoparize/eks-nvme-ssd-provisioner
+          ECR_REPOSITORY: eks-nvme-ssd-provisioner
         run: |
           echo $IMAGE_VERSION
           docker pull $ECR_REPOSITORY:latest | true
