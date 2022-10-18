@@ -72,7 +72,7 @@ jobs:
         run: |
           echo $IMAGE_VERSION
           docker pull $ECR_REPOSITORY:latest | true
-          docker buildx build -f Dockerfile-arm . --platform linux/amd64,linux/arm64 --tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_VERSION --tag $ECR_REGISTRY/$ECR_REPOSITORY:latest --cache-from $ECR_REPOSITORY:latest --push
+          docker buildx build -f Dockerfile . --platform linux/amd64,linux/arm64 --tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_VERSION --tag $ECR_REGISTRY/$ECR_REPOSITORY:latest --cache-from $ECR_REPOSITORY:latest --push
 
       - name: Logout of Amazon ECR
         run: docker logout ${{ steps.login-ecr.outputs.registry }}
